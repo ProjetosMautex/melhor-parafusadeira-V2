@@ -1,0 +1,515 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+
+const articles = [
+	{
+		title: "As 7 Melhores Parafusadeiras de 2026: Guia Completo",
+		href: "/melhor-parafusadeira",
+		image: "/images/parafusadeira.png"
+	},
+	{
+		title: "Melhor Furadeira de Impacto: Qual Escolher para sua Obra?",
+		href: "/melhor-furadeira",
+		image: "/images/furadeira.png"
+	},
+	{
+		title: "Parafusadeiras Custo-Benefício: As Melhores Opções Baratas",
+		href: "/melhor-parafusadeira-custo-beneficio",
+		image: "/images/custo-beneficio.png"
+	},
+	{
+		title: "Furadeira e Parafusadeira: 2 em 1 que Facilitam sua Vida",
+		href: "/melhor-furadeira-e-parafusadeira",
+		image: "/images/furadeira-parafusadeira.png"
+	},
+	{
+		title: "As Melhores Marcas de Furadeira e Parafusadeira do Mercado",
+		href: "/melhores-marcas-de-furadeira",
+		image: "/images/marcas.png"
+	},
+	{
+		title: "Parafusadeira Black Tools é Boa? Analisamos o Modelo",
+		href: "/parafusadeira-black-tools-e-boa",
+		image: "/images/black-tools.png"
+	},
+	{
+		title: "Como Destravar uma Parafusadeira: Guia de Manutenção",
+		href: "/como-destravar-parafusadeira",
+		image: "/images/parafusadeira.png"
+	},
+	{
+		title: "As Melhores Parafusadeiras DeWalt de 2026",
+		href: "/melhor-parafusadeira-dewalt",
+		image: "/images/furadeira.png"
+	},
+	{
+		title: "Parafusadeira 12V ou 20V: Qual a Melhor para Você?",
+		href: "/qual-a-melhor-parafusadeira-12v-ou-20v",
+		image: "/images/custo-beneficio.png"
+	},
+	{
+		title: "Guia Passo a Passo: Como Usar uma Parafusadeira",
+		href: "/como-usar-parafusadeira",
+		image: "/images/furadeira-parafusadeira.png"
+	},
+	{
+		title: "Como Usar uma Furadeira Manual e de Impacto",
+		href: "/como-usar-furadeira",
+		image: "/images/marcas.png"
+	},
+	{
+		title: "Parafusadeira WAP é Boa? Análise Completa da Marca",
+		href: "/parafusadeira-wap-e-boa",
+		image: "/images/black-tools.png"
+	},
+	{
+		title: "Como Escolher a Parafusadeira Ideal para sua Casa",
+		href: "/como-escolher-parafusadeira",
+		image: "/images/parafusadeira.png"
+	},
+	{
+		title: "Bosch vs DeWalt: Qual a Melhor Marca de Ferramentas?",
+		href: "/qual-a-melhor-parafusadeira-bosch-ou-dewalt",
+		image: "/images/furadeira.png"
+	},
+	{
+		title: "Técnica: Como Furar Madeira com uma Parafusadeira",
+		href: "/como-furar-madeira-com-parafusadeira",
+		image: "/images/custo-beneficio.png"
+	},
+	{
+		title: "Os Melhores Bits para Parafusadeira: Aumente sua Eficiência",
+		href: "/melhor-bits-para-parafusadeira",
+		image: "/images/furadeira-parafusadeira.png"
+	},
+	{
+		title: "Truque de Mestre: Como Tirar Parafuso Espanado",
+		href: "/como-tirar-parafuso-espanado-com-parafusadeira",
+		image: "/images/marcas.png"
+	},
+	{
+		title: "Dica Rápida: Como Tirar a Bateria da Parafusadeira com Segurança",
+		href: "/como-tirar-a-bateria-da-parafusadeira",
+		image: "/images/black-tools.png"
+	},
+	{
+		title: "Como Usar Furadeira com Função Parafusadeira",
+		href: "/como-usar-furadeira-com-parafusadeira",
+		image: "/images/parafusadeira.png"
+	},
+	{
+		title: "Diferença Entre Parafusadeira e Furadeira: Guia Completo",
+		href: "/qual-a-diferenca-entre-parafusadeira-e-furadeira",
+		image: "/images/furadeira.png"
+	},
+	{
+		title: "Como Escolher a Melhor Furadeira para suas Necessidades",
+		href: "/como-escolher-furadeira",
+		image: "/images/custo-beneficio.png"
+	},
+	{
+		title: "Qual o Melhor Torque para Parafusadeira? Entenda as Funções",
+		href: "/qual-o-melhor-torque-para-parafusadeira",
+		image: "/images/furadeira-parafusadeira.png"
+	},
+	{
+		title: "Como Usar Furadeira para Instalar Cortinas com Sucesso",
+		href: "/como-usar-furadeira-para-colocar-cortina",
+		image: "/images/marcas.png"
+	},
+	{
+		title: "Como Furar Parede com Furadeira: Dicas e Passo a Passo",
+		href: "/como-furar-parede-com-furadeira",
+		image: "/images/black-tools.png"
+	},
+	{
+		title: "Como Furar Parede de Concreto: O Guia Definitivo",
+		href: "/como-furar-parede-de-concreto-com-furadeira",
+		image: "/images/parafusadeira.png"
+	},
+	{
+		title: "Como Usar Serra Copo na Furadeira com Segurança",
+		href: "/como-usar-serra-copo-na-furadeira",
+		image: "/images/furadeira.png"
+	},
+	{
+		title: "Furadeira 110V ou 220V: Como Saber a Voltagem Correta",
+		href: "/como-saber-se-a-furadeira-e-110-ou-220",
+		image: "/images/custo-beneficio.png"
+	},
+	{
+		title: "Parafusadeira DeWalt Original: Como Identificar Falsificações",
+		href: "/como-saber-se-a-parafusadeira-dewalt-e-original",
+		image: "/images/furadeira-parafusadeira.png"
+	},
+	{
+		title: "As Melhores Parafusadeiras 20V de 2026: Top Modelos",
+		href: "/melhor-parafusadeira-20v",
+		image: "/images/marcas.png"
+	},
+	{
+		title: "É Possível Aumentar a Potência da Parafusadeira? Descubra",
+		href: "/como-aumentar-a-potencia-da-parafusadeira",
+		image: "/images/black-tools.png"
+	},
+	{
+		title: "Técnica: Como Tirar Rebite Utilizando uma Parafusadeira",
+		href: "/como-tirar-rebite-com-parafusadeira",
+		image: "/images/parafusadeira.png"
+	},
+	{
+		title: "Parafusadeira a Bateria ou Elétrica: Qual a Melhor Compra?",
+		href: "/qual-melhor-compra-parafusadeira-a-bateria-ou-a-eletrica",
+		image: "/images/furadeira.png"
+	},
+	{
+		title: "Parafusadeira WAP 21V é Boa? Testamos o Modelo",
+		href: "/furadeira-e-parafusadeira-wap-21v-e-boa",
+		image: "/images/custo-beneficio.png"
+	},
+	{
+		title: "Qual o Melhor Mandril para Furadeira? Tipos e Funções",
+		href: "/qual-melhor-mandril-para-furadeira",
+		image: "/images/furadeira-parafusadeira.png"
+	},
+	{
+		title: "Parafusadeira Vonder é Boa? Análise de Custo-Benefício",
+		href: "/parafusadeira-vonder-e-boa",
+		image: "/images/marcas.png"
+	},
+	{
+		title: "Parafusadeira Mondial vale a pena? Review Completo",
+		href: "/parafusadeira-mondial-e-boa",
+		image: "/images/black-tools.png"
+	},
+	{
+		title: "Melhor Parafusadeira Bosch de 2026: Guia de Compra",
+		href: "/melhor-parafusadeira-bosch",
+		image: "/images/parafusadeira.png"
+	},
+	{
+		title: "Melhor Furadeira Makita: Qual o Modelo Ideal?",
+		href: "/melhor-furadeira-makita",
+		image: "/images/furadeira.png"
+	},
+	{
+		title: "Parafusadeira Nakasaki é Boa? Avaliação Completa",
+		href: "/parafusadeira-nakasaki-e-boa",
+		image: "/images/custo-beneficio.png"
+	},
+	{
+		title: "Parafusadeira Deko vale a pena? Review e Testes",
+		href: "/parafusadeira-deko-e-boa",
+		image: "/images/furadeira-parafusadeira.png"
+	},
+	{
+		title: "Parafusadeira Wesco é Boa? Analisamos a Marca",
+		href: "/furadeira-e-parafusadeira-wesco-e-boa",
+		image: "/images/marcas.png"
+	},
+	{
+		title: "Furadeira e Parafusadeira DWT: Review Completo",
+		href: "/furadeira-e-parafusadeira-dwt-e-boa",
+		image: "/images/black-tools.png"
+	},
+	{
+		title: "Furadeira Tramontina é Boa? Vale o Custo-Benefício?",
+		href: "/furadeira-tramontina-e-boa",
+		image: "/images/parafusadeira.png"
+	},
+	{
+		title: "Parafusadeira Hammer: É boa para Uso Doméstico?",
+		href: "/parafusadeira-hammer-e-boa",
+		image: "/images/furadeira.png"
+	},
+	{
+		title: "Furadeira e Parafusadeira Philco é Boa?",
+		href: "/furadeira-e-parafusadeira-philco-e-boa",
+		image: "/images/custo-beneficio.png"
+	},
+	{
+		title: "Parafusadeira Stanley: Qualidade Profissional com Bom Preço?",
+		href: "/parafusadeira-stanley-e-boa",
+		image: "/images/furadeira-parafusadeira.png"
+	},
+	{
+		title: "Furadeira Skil vale a pena? Descubra se é boa",
+		href: "/furadeira-skil-e-boa",
+		image: "/images/marcas.png"
+	},
+	{
+		title: "Melhor Broca para Concreto: Tipos e Recomendações",
+		href: "/melhor-broca-para-concreto",
+		image: "/images/black-tools.png"
+	},
+	{
+		title: "Melhor Broca para Madeira: Qual Escolher?",
+		href: "/melhor-broca-para-madeira",
+		image: "/images/parafusadeira.png"
+	},
+	{
+		title: "Melhores Brocas para Ferro e Metal: Guia Completo",
+		href: "/melhor-broca-para-ferro",
+		image: "/images/furadeira.png"
+	},
+	{
+		title: "Melhor Parafusadeira 12V: Compacta e Potente",
+		href: "/melhor-parafusadeira-12v",
+		image: "/images/custo-beneficio.png"
+	},
+	{
+		title: "Melhores Jogos de Brocas para ter em Casa",
+		href: "/melhor-jogo-de-brocas",
+		image: "/images/furadeira-parafusadeira.png"
+	},
+	{
+		title: "Melhor Furadeira Bosch: Review dos Melhores Modelos",
+		href: "/melhor-furadeira-bosch",
+		image: "/images/marcas.png"
+	},
+	{
+		title: "Furadeira Titanium é Boa? Analisamos os Prós e Contras",
+		href: "/furadeira-titanium-e-boa",
+		image: "/images/black-tools.png"
+	},
+	{
+		title: "Melhor Parafusadeira de Impacto: Guia de Modelos em 2026",
+		href: "/melhor-parafusadeira-de-impacto",
+		image: "/images/parafusadeira.png"
+	},
+	{
+		title: "Parafusadeira Bosch GSR 1000 Smart: Ela ainda é boa em 2026?",
+		href: "/parafusadeira-bosch-gsr-1000-smart-e-boa",
+		image: "/images/furadeira.png"
+	},
+	{
+		title: "Review: Parafusadeira Bosch GSR 7-14E vale a pena?",
+		href: "/parafusadeira-bosch-gsr-7-14e-e-boa",
+		image: "/images/custo-beneficio.png"
+	},
+	{
+		title: "Parafusadeira Vonder PFV 012: É boa para Iniciantes?",
+		href: "/parafusadeira-vonder-pfv-012-e-boa",
+		image: "/images/furadeira-parafusadeira.png"
+	},
+	{
+		title: "Furadeira Bosch 450W: Testamos para Pequenos Reparos",
+		href: "/furadeira-bosch-450w-e-boa",
+		image: "/images/marcas.png"
+	},
+	{
+		title: "Furadeira Bosch 550W GSB 13 RE: Desempenho e Qualidade",
+		href: "/furadeira-bosch-550w-e-boa",
+		image: "/images/black-tools.png"
+	},
+	{
+		title: "Furadeira Black and Decker 560W: Avaliação Completa",
+		href: "/furadeira-bleken-decker-560w-e-boa",
+		image: "/images/parafusadeira.png"
+	},
+	{
+		title: "Furadeira Makita HP1640: Potência e Durabilidade no Teste",
+		href: "/furadeira-makita-hp1640-e-boa",
+		image: "/images/furadeira.png"
+	},
+	{
+		title: "Como Saber se a Parafusadeira está Carregada? Dicas Simples",
+		href: "/como-saber-se-a-parafusadeira-esta-carregada",
+		image: "/images/custo-beneficio.png"
+	},
+	{
+		title: "Melhor Parafusadeira Brushless: A Tecnologia sem Escovas",
+		href: "/melhor-parafusadeira-brushless",
+		image: "/images/furadeira-parafusadeira.png"
+	},
+	{
+		title: "O que é Parafusadeira Brushless? Vantagens e Funcionamento",
+		href: "/o-que-e-uma-parafusadeira-brushless",
+		image: "/images/marcas.png"
+	},
+	{
+		title: "Chave de Impacto vs Parafusadeira: Qual a Diferença Real?",
+		href: "/qual-a-diferenca-entre-chave-de-impacto-e-parafusadeira",
+		image: "/images/black-tools.png"
+	},
+	{
+		title: "Qual a Melhor Bateria para Parafusadeira? Guia de Amperagem",
+		href: "/melhor-bateria-para-parafusadeira",
+		image: "/images/parafusadeira.png"
+	},
+	{
+		title: "Vale a Pena Comprar uma Parafusadeira? Veja os Benefícios",
+		href: "/vale-a-pena-comprar-parafusadeira",
+		image: "/images/furadeira.png"
+	},
+	{
+		title: "Passo a Passo: Como Tirar a Broca da Parafusadeira",
+		href: "/como-tirar-a-broca-da-parafusadeira",
+		image: "/images/custo-beneficio.png"
+	},
+	{
+		title: "O que é Parafusadeira de Impacto e Quando Usar?",
+		href: "/o-que-e-parafusadeira-de-impacto",
+		image: "/images/furadeira-parafusadeira.png"
+	},
+	{
+		title: "Entenda o que são Bits de Parafusadeira e Seus Tipos",
+		href: "/o-que-e-bits-de-parafusadeira",
+		image: "/images/marcas.png"
+	},
+	{
+		title: "Para que Serve o Carvão da Furadeira? Saiba quando Trocar",
+		href: "/para-que-serve-o-carvao-da-furadeira",
+		image: "/images/black-tools.png"
+	},
+	{
+		title: "O que Significa L e R na Furadeira? Entenda a Reversão",
+		href: "/o-que-significa-l-e-r-na-furadeira",
+		image: "/images/parafusadeira.png"
+	},
+	{
+		title: "Como Trocar o Carvão da Furadeira: Guia de Manutenção",
+		href: "/como-trocar-o-carvao-da-furadeira",
+		image: "/images/furadeira.png"
+	},
+	{
+		title: "O que é Função Percutor (Impacto) na Parafusadeira?",
+		href: "/o-que-e-funcao-percutor-na-parafusadeira",
+		image: "/images/custo-beneficio.png"
+	},
+	{
+		title: "Tipos de Parafusadeira: Qual a Ideal para cada Trabalho?",
+		href: "/tipos-de-parafusadeira-qual-a-ideal-para-cada-trabalho",
+		image: "/images/furadeira-parafusadeira.png"
+	},
+	{
+		title: "Como Polir Carro com Parafusadeira? Dicas e Cuidados",
+		href: "/como-polir-carro-com-parafusadeira",
+		image: "/images/marcas.png"
+	},
+	{
+		title: "Passo a Passo: Como Trocar o Mandril da Furadeira",
+		href: "/como-trocar-o-mandril-da-furadeira",
+		image: "/images/black-tools.png"
+	},
+	{
+		title: "Guia de Segurança com Furadeira: Use sem Riscos",
+		href: "/seguranca-com-furadeira",
+		image: "/images/parafusadeira.png"
+	},
+	{
+		title: "É possível diminuir o barulho da furadeira? Veja dicas",
+		href: "/como-diminuir-o-barulho-da-furadeira",
+		image: "/images/furadeira.png"
+	},
+	{
+		title: "Como Funciona a Furadeira de Impacto por Dentro?",
+		href: "/como-funciona-furadeira-de-impacto",
+		image: "/images/custo-beneficio.png"
+	},
+	{
+		title: "Como Furar Vidro com Furadeira sem Quebrar: O Segredo",
+		href: "/como-furar-vidro-com-furadeira",
+		image: "/images/furadeira-parafusadeira.png"
+	}
+];
+---
+
+<Layout title="Blog - Melhor Parafusadeira">
+	<main>
+		<header class="blog-header">
+			<div class="container">
+				<a href="/" class="back-link">&larr; Voltar para Home</a>
+				<h1 class="animate-fade-in">Blog de <br/><span class="text-gradient">Ferramentas</span></h1>
+				<p class="animate-fade-in" style="animation-delay: 0.2s">
+					As últimas novidades, dicas de uso e revisões detalhadas.
+				</p>
+			</div>
+		</header>
+
+		<section class="articles-grid container">
+			<div class="grid">
+				{articles.map((article, index) => (
+					<ArticleCard 
+						title={article.title} 
+						href={article.href} 
+						image={article.image}
+						delay={`${index * 0.1}s`}
+					/>
+				))}
+			</div>
+		</section>
+	</main>
+
+	<footer class="container">
+		<p>&copy; 2026 Melhor Parafusadeira. Todos os direitos reservados.</p>
+	</footer>
+</Layout>
+
+<style>
+	main {
+		padding-bottom: 5rem;
+	}
+
+	.blog-header {
+		padding: 6rem 0 3rem;
+		text-align: center;
+	}
+
+	.back-link {
+		color: var(--text-muted);
+		text-decoration: none;
+		font-size: 0.875rem;
+		display: inline-block;
+		margin-bottom: 1rem;
+		transition: color 0.3s ease;
+	}
+
+	.back-link:hover {
+		color: var(--primary);
+	}
+
+	h1 {
+		font-size: clamp(2rem, 6vw, 3.5rem);
+		line-height: 1.1;
+		margin-bottom: 1.5rem;
+	}
+
+	.text-gradient {
+		background: linear-gradient(to right, var(--primary), #fff);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	p {
+		font-size: 1.125rem;
+		color: var(--text-muted);
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 2rem;
+	}
+
+	footer {
+		margin-top: auto;
+		padding: 4rem 1.5rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.05);
+		text-align: center;
+		color: var(--text-muted);
+		font-size: 0.875rem;
+	}
+
+	@media (max-width: 768px) {
+		.blog-header {
+			padding: 4rem 0 2rem;
+		}
+		.grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

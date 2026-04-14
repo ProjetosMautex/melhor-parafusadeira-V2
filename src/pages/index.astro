@@ -1,3 +1,153 @@
 ---
-return Astro.redirect('https://mestredasferramentas.com.br/', 301);
+import Layout from '../layouts/Layout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+
+const articles = [
+	{
+		title: "As 7 Melhores Parafusadeiras de 2026: Guia Completo",
+		href: "/melhor-parafusadeira",
+		image: "/images/parafusadeira.png"
+	},
+	{
+		title: "Melhor Furadeira de Impacto: Qual Escolher para sua Obra?",
+		href: "/melhor-furadeira",
+		image: "/images/furadeira.png"
+	},
+	{
+		title: "Parafusadeiras Custo-Benefício: As Melhores Opções Baratas",
+		href: "/melhor-parafusadeira-custo-beneficio",
+		image: "/images/custo-beneficio.png"
+	},
+	{
+		title: "Furadeira e Parafusadeira: 2 em 1 que Facilitam sua Vida",
+		href: "/melhor-furadeira-e-parafusadeira",
+		image: "/images/furadeira-parafusadeira.png"
+	},
+	{
+		title: "As Melhores Marcas de Furadeira e Parafusadeira do Mercado",
+		href: "/melhores-marcas-de-furadeira",
+		image: "/images/marcas.png"
+	},
+	{
+		title: "Parafusadeira Black Tools é Boa? Analisamos o Modelo",
+		href: "/parafusadeira-black-tools-e-boa",
+		image: "/images/black-tools.png"
+	}
+];
 ---
+
+<Layout title="Melhor Parafusadeira - O Guia Definitivo de Ferramentas">
+	<main>
+		<section class="hero">
+			<div class="container">
+				<h1 class="animate-fade-in">Escolha a Próxima <br/><span class="text-gradient">Ferramenta Mestra</span></h1>
+				<p class="animate-fade-in" style="animation-delay: 0.2s">
+					Análises profundas, testes reais e as melhores recomendações para você não errar na compra.
+				</p>
+				<div class="cta-group animate-fade-in" style="animation-delay: 0.4s">
+					<a href="/blog" class="btn btn-primary">Ver Blog</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="articles-grid container">
+			<div class="grid">
+				{articles.map((article, index) => (
+					<ArticleCard 
+						title={article.title} 
+						href={article.href} 
+						image={article.image}
+						delay={`${index * 0.1}s`}
+					/>
+				))}
+			</div>
+		</section>
+	</main>
+
+	<footer class="container">
+		<p>&copy; 2026 Melhor Parafusadeira. Todos os direitos reservados.</p>
+	</footer>
+</Layout>
+
+<style>
+	main {
+		padding-bottom: 5rem;
+	}
+
+	.hero {
+		padding: 8rem 0 4rem;
+		text-align: center;
+	}
+
+	h1 {
+		font-size: clamp(2.5rem, 8vw, 4.5rem);
+		line-height: 1.1;
+		margin-bottom: 1.5rem;
+	}
+
+	.text-gradient {
+		background: linear-gradient(to right, var(--primary), #fff);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	p {
+		font-size: 1.25rem;
+		color: var(--text-muted);
+		max-width: 600px;
+		margin: 0 auto 2.5rem;
+	}
+
+	.btn {
+		display: inline-block;
+		padding: 1rem 2.5rem;
+		border-radius: 99px;
+		font-weight: 700;
+		text-decoration: none;
+		transition: all 0.3s ease;
+		font-family: 'Outfit', sans-serif;
+	}
+
+	.btn-primary {
+		background: var(--primary);
+		color: var(--bg-dark);
+		box-shadow: 0 4px 14px 0 rgba(251, 191, 36, 0.39);
+	}
+
+	.btn-primary:hover {
+		background: var(--primary-hover);
+		transform: translateY(-2px);
+		box-shadow: 0 6px 20px rgba(251, 191, 36, 0.45);
+	}
+
+	.articles-grid {
+		padding-top: 2rem;
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: 2rem;
+	}
+
+	footer {
+		margin-top: auto;
+		padding: 4rem 1.5rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.05);
+		text-align: center;
+		color: var(--text-muted);
+		font-size: 0.875rem;
+	}
+
+	@media (max-width: 768px) {
+		.hero {
+			padding: 4rem 0 2rem;
+		}
+		h1 {
+			font-size: 2.5rem;
+		}
+		.grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
