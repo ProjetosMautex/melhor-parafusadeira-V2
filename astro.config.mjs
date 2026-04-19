@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 const site = 'https://melhorparafusadeira.com.br';
 
+/** @type {Record<string, { status: 301 | 302 | 307 | 308; destination: string }>} */
 const redirects = {
   '/melhor-parafusadeira': { status: 301, destination: 'https://mestredasferramentas.com.br/melhor-parafusadeira' },
   '/melhor-furadeira': { status: 301, destination: 'https://mestredasferramentas.com.br/melhor-furadeira' },
@@ -88,7 +89,7 @@ const redirects = {
   '/como-diminuir-o-barulho-da-furadeira': { status: 301, destination: 'https://mestredasferramentas.com.br/como-diminuir-o-barulho-da-furadeira' },
   '/como-funciona-furadeira-de-impacto': { status: 301, destination: 'https://mestredasferramentas.com.br/como-funciona-furadeira-de-impacto' },
   '/como-furar-vidro-com-furadeira': { status: 301, destination: 'https://mestredasferramentas.com.br/como-furar-vidro-com-furadeira' },
-} as const;
+};
 
 // https://astro.build/config
 export default defineConfig({
